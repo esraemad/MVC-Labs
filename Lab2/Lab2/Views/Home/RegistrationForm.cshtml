@@ -1,0 +1,73 @@
+﻿@using Lab2.Models
+@model Employee
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistrationForm</title>
+    <style>
+        * {
+            font-family: Tahoma;
+        }
+
+        .form-input {
+            display: block;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+            cursor:pointer;
+        }
+
+        input[type=submit] {
+            background-color: black;
+            color: #fff
+        }
+
+        h1 {
+            text-align: center
+        }
+        .input-validation-error {
+            border: 2px solid red;
+        }
+        .validationMsg {
+            font-weight:bold;
+        }
+        .field-validation-error
+        {
+           color:green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register Form</h1>
+
+    <form method="post">
+
+        @*<input type="text" name="name" class="form-input" placeholder="Name:" />
+        <input type="email" name="email" class="form-input" placeholder="Email" />
+        <input type="number" name="phone" class="form-input" placeholder="Phone" />*@
+
+        
+
+        @Html.TextBoxFor(m => m.Name  , new { @class = "form-input"  , placeholder = "Name" })@Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Salary , new { @class = "form-input"  , placeholder = "Salary" } )@Html.ValidationMessageFor(m => m.Salary)
+        @Html.TextAreaFor(m => m.Address , new { @class = "form-input", placeholder = "Addres" })@Html.ValidationMessageFor(m => m.Address)
+        <br /> <br />
+        <input type="submit" value="Submit" class="form-input" />
+
+    </form>
+
+</body>
+</html>
